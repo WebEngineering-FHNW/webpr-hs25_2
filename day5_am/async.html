@@ -10,8 +10,27 @@
 
 <script>
     // Example
+    // document.body.style.backgroundColor = "black";
+    // fetch('https://jsonplaceholder.typicode.com/todos/1')
+    //     .then( resp => resp.json())
+    //     .then(/** @type { TodoType } */ todo => out.textContent = todo.title)
+    //     .catch( err => console.error(err))
+    //     .finally(() => document.body.style.backgroundColor = "revert");
 
-    // 'https://jsonplaceholder.typicode.com/todos/1'
+    document.body.style.backgroundColor = "black";
+    const foo = async () => {
+        try {
+            const resp = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+            const todo = await resp.json();
+            out.textContent = todo.title;
+        } catch (e) {
+            console.error(e);
+        } finally {
+            document.body.style.backgroundColor = "revert";
+        }
+
+    };
+    foo();
 
 
 </script>
